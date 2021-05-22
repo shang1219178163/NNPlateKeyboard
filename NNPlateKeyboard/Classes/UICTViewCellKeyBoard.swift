@@ -24,7 +24,7 @@ class UICTViewCellKeyBoard: UICollectionViewCell {
                 
             } else {
                 label.textColor = newValue ? .black : UIColor(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1);
-                backImgView.image = UIImage.image(named:"btn_normal", podClass: NNPlateKeyboard.self)
+                backImgView.image = UIImage(named:"btn_normal", podClass: NNPlateKeyboard.self)
             }
         }
     }
@@ -46,8 +46,8 @@ class UICTViewCellKeyBoard: UICollectionViewCell {
         backImgView.contentMode = .scaleToFill
 //        backImgView.backgroundColor = UIColor.white
 
-        backImgView.image = UIImage.image(named:"btn_normal", podClass: NNPlateKeyboard.self)
-        backImgView.highlightedImage = UIImage.image(named:"btn_pressed", podClass: NNPlateKeyboard.self)
+        backImgView.image = UIImage(named:"btn_normal", podClass: NNPlateKeyboard.self)
+        backImgView.highlightedImage = UIImage(named:"btn_pressed", podClass: NNPlateKeyboard.self)
         
         label.addObserver(self, forKeyPath: "text", options: .new, context: nil)
         self.addObserver(self, forKeyPath: "selected", options: .new, context: nil)
@@ -60,10 +60,10 @@ class UICTViewCellKeyBoard: UICollectionViewCell {
             switch value {
             case "删除":
                 label.isHidden = true;
-                backImgView.image = UIImage.image(named:"btn_normal", podClass: NNPlateKeyboard.self)
-                backImgView.highlightedImage = UIImage.image(named:"btn_pressed", podClass: NNPlateKeyboard.self)
-                iconImgView.image = UIImage.image(named:"delete", podClass: NNPlateKeyboard.self)
-                iconImgView.highlightedImage = UIImage.image(named:"delete", podClass: NNPlateKeyboard.self)
+                backImgView.image = UIImage(named:"btn_normal", podClass: NNPlateKeyboard.self)
+                backImgView.highlightedImage = UIImage(named:"btn_pressed", podClass: NNPlateKeyboard.self)
+                iconImgView.image = UIImage(named:"delete", podClass: NNPlateKeyboard.self)
+                iconImgView.highlightedImage = UIImage(named:"delete", podClass: NNPlateKeyboard.self)
                 
             case "确定":
                 label.isHidden = false;
@@ -78,8 +78,8 @@ class UICTViewCellKeyBoard: UICollectionViewCell {
                 label.isHidden = false;
                 label.textColor = .black
                 backImgView.contentMode = .scaleToFill
-                backImgView.image = UIImage.image(named:"btn_normal", podClass: NNPlateKeyboard.self)
-                backImgView.highlightedImage = UIImage.image(named:"btn_pressed", podClass: NNPlateKeyboard.self)
+                backImgView.image = UIImage(named:"btn_normal", podClass: NNPlateKeyboard.self)
+                backImgView.highlightedImage = UIImage(named:"btn_pressed", podClass: NNPlateKeyboard.self)
                 iconImgView.image = nil
                 iconImgView.highlightedImage = nil
             }

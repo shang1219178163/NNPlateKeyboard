@@ -20,7 +20,8 @@ class HomeViewController: UIViewController {
         
         title = "车牌键盘"
 //        view.backgroundColor = UIColor.red
-        _ = createBtnBarItem("重构") { (reco, itemView, idx) in
+        
+        createBarItem("车牌键盘") { (item) in
             let controller = NNPlateKeyboardController()
             self.navigationController?.pushViewController(controller, animated: true);
         }
