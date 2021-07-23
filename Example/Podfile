@@ -5,7 +5,7 @@ target 'NNPlateKeyboard_Example' do
   pod 'NNPlateKeyboard', :path => '../'
 
   pod 'IQKeyboardManagerSwift'
-
+  
   target 'NNPlateKeyboard_Tests' do
     inherit! :search_paths
 

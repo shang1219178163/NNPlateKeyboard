@@ -78,7 +78,7 @@ import SwiftExpand
         textField.placeholder = " 请输入车牌号码";
         if showSearch {
 //            let image = UIImage(named: "search_bar")
-            let image = UIImage.image(named: "search_bar", podClass: NNPlateKeyboard.self)
+            let image = UIImage(named: "search_bar", podClass: NNPlateKeyboard.self)
             textField.setupLeftView(image: image)
         }
 
@@ -149,7 +149,15 @@ extension NNPlateKeyboard: NNKeyBoardViewDeleagte{
                 }
             }
         }
-//        DDLog("之后:\(key) \(plateNumber) \(plateNumber.count) \(inputIndex)")
+        
+        if plateNumber.count >= maxCount {
+            inputIndex = maxCount - 1
+        } else {
+            inputIndex = plateNumber.count
+        }
+        keyboardAccessoryView.inputIndex = inputIndex
+        
+        DDLog("之后:\(key) \(plateNumber) \(plateNumber.count) \(inputIndex)")
         if plateNumber.count <= maxCount {
             keyboardView.updateKeyboard(isMoreType: isMoreType)
         }
@@ -171,3 +179,30 @@ extension NNPlateKeyboard: NNKeyboardAccessoryViewDeleagte{
 
 }
 
+
+fileprivate extension UITextField{
+    
+    /// 设置 leftView 图标
+    func setupLeftView(image: UIImage?, viewMode: UITextField.ViewMode = .always) {
+        if image == nil {
+            return
+        }
+        if leftView != nil {
+            leftViewMode = viewMode
+            return
+        }
+     
+        leftViewMode = viewMode; //此处用来设置leftview显示时机
+        leftView = {
+            let view: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
+            
+            let imgView = UIImageView(frame:CGRect(x: 0, y: 0, width: 15, height: 15));
+            imgView.image = image
+            imgView.contentMode = UIView.ContentMode.scaleAspectFit;
+            imgView.center = view.center;
+            view.addSubview(imgView);
+          
+            return view;
+        }()
+    }
+}

@@ -1,13 +1,10 @@
 PODS:
-  - IQKeyboardManagerSwift (6.5.5)
-  - NNPlateKeyboard (1.4.2):
+  - IQKeyboardManagerSwift (6.5.6)
+  - NNPlateKeyboard (1.4.3):
     - SnapKit
-    - SnapKitExtend
     - SwiftExpand
-  - SnapKit (4.2.0)
-  - SnapKitExtend (1.0.7):
-    - SnapKit
-  - SwiftExpand (1.9.7.1)
+  - SnapKit (5.0.1)
+  - SwiftExpand (7.10.0)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
@@ -17,7 +14,6 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - IQKeyboardManagerSwift
     - SnapKit
-    - SnapKitExtend
     - SwiftExpand
 
 EXTERNAL SOURCES:
@@ -25,12 +21,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
-  NNPlateKeyboard: feb53e620615c5a632f2049038e1414af6364558
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SnapKitExtend: 00ee4db6d1f80bee01a1e75745f2a6ae695ba662
-  SwiftExpand: 60be6b25fc904e3aa9ed8b0326a4f96cf315a74e
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  NNPlateKeyboard: f2f8b9aea1ca02c3bc2653c751b185362901e2f3
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftExpand: 0fbe2d2bbc171d3446b5d2d7bb158568799890bc
 
-PODFILE CHECKSUM: 1f2d537d39ed125cd7304f37267b40f411a2e047
+PODFILE CHECKSUM: 2a3159e406f05dea75912e74a574f71c91ee0660
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

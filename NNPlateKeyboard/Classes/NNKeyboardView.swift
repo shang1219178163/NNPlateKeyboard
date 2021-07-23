@@ -9,6 +9,10 @@
 import UIKit
 import SwiftExpand
 
+
+let kKeyboardHeight: CGFloat = 218
+
+
 @objc protocol NNKeyBoardViewDeleagte {
     @objc func keyboardViewSelect(key: String)
 }
@@ -33,7 +37,7 @@ class NNKeyboardView: UIView {
     
     // MARK: - lifecycle
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x:0 , y: 0, width: kScreenWidth, height: 226 + 5 + kIphoneXtabHeight))
+        super.init(frame: CGRect(x:0 , y: 0, width: kScreenWidth, height: 226 + 5 + kTabPaddingHeight))
         setUI()
     }
    
@@ -135,7 +139,10 @@ class NNKeyboardView: UIView {
     }
     /// 键盘视图更新
     func updateKeyboard(isMoreType: Bool){
-        listModel = NNKeyboardEngine.generateLayout( inputIndex: inputIndex, plateNumber: plateNumber, numberType: numType, isMoreType:isMoreType);
+        listModel = NNKeyboardEngine.generateLayout(inputIndex: inputIndex,
+                                                    plateNumber: plateNumber,
+                                                    numberType: numType,
+                                                    isMoreType: isMoreType);
         collectionView.reloadData()
     }
     

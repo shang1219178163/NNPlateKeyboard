@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/shang1219178163/NNPlateKeyboard.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   s.swift_version = "5.0"
   s.requires_arc = true
   
@@ -28,10 +28,9 @@ Pod::Spec.new do |s|
      'NNPlateKeyboard' => ['NNPlateKeyboard/*.xcassets']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-#   s.dependency 'SwiftExpand', '~> 1.9.6.5'
+  
    s.dependency 'SwiftExpand'
    s.dependency 'SnapKit'
-   s.dependency 'SnapKitExtend'
+#   s.dependency 'SnapKitExtend'
 end

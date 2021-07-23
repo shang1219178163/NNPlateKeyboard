@@ -15,7 +15,7 @@ class NNPlateKeyboardController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupExtendedLayout()
+        edgesForExtendedLayout = []
         view.backgroundColor = UIColor.white
 
         title = "车牌键盘重构"
@@ -25,7 +25,7 @@ class NNPlateKeyboardController: UIViewController {
 //        textField.inputView = keyboardView;
         textField.becomeFirstResponder()
         
-        _ = view.addGestureTap { (reco) in
+        view.addGestureTap { (reco) in
             self.textField.resignFirstResponder()
         }
               
@@ -77,6 +77,7 @@ extension NNPlateKeyboardController: UITextFieldDelegate {
 extension NNPlateKeyboardController: NNPlateKeyboardDeleagte {
 
     func plateDidChange(_ plate: String, complete: Bool) {
+        DDLog(plate)
         textField.text = plate
     }
 }
