@@ -37,7 +37,7 @@ class NNKeyboardView: UIView {
     
     // MARK: - lifecycle
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x:0 , y: 0, width: kScreenWidth, height: 226 + 5 + kTabPaddingHeight))
+        super.init(frame: CGRect(x:0 , y: 0, width: kScreenWidth, height: 226 + 5 + kTabBarPaddingHeight))
         setUI()
     }
    
