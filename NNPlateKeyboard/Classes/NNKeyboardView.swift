@@ -51,7 +51,7 @@ class NNKeyboardView: UIView {
         view.image = UIImage(named: "pressed", podClass: NNPlateKeyboard.self)
         
         var label: UILabel {
-            let view = UILabel(frame: CGRectMake(0, 0, 55, 55))
+            let view = UILabel(frame: CGRect(0, 0, 55, 55))
             view.font = UIFont.systemFont(ofSize: 29)
             view.textAlignment = .center
             view.tag = 100;
