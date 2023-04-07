@@ -180,8 +180,7 @@ extension NNPlateKeyboard: NNKeyboardAccessoryViewDeleagte{
 }
 
 
-fileprivate extension UITextField{
-    
+@objc public extension UITextField{
     /// 设置 leftView 图标
     func setupLeftView(image: UIImage?, viewMode: UITextField.ViewMode = .always) {
         if image == nil {

@@ -22,16 +22,7 @@ class NNKeyboardAccessoryView: UIView {
         }
     }
     
-    var inputIndex = 0{
-//        willSet{
-//            collectionView.reloadData()
-//        }
-//
-        didSet{
-            collectionView.reloadData()
-
-        }
-    }
+    var inputIndex = 0
 
     var plateNumber: String = ""{
         willSet{
@@ -154,7 +145,7 @@ extension NNKeyboardAccessoryView: UICollectionViewDataSource, UICollectionViewD
             selectView.frame = cell.frame
         }
 //        cell.textLabel.text = "\(indexPath.row)"
-        cell.textLabel.text = plateNumber.count > indexPath.row && inputIndex >= indexPath.row ? "\(plateNumber[indexPath.row])" : "";
+        cell.textLabel.text = plateNumber.count > indexPath.row ? "\(plateNumber[indexPath.row])" : "";
         return cell
     }
 

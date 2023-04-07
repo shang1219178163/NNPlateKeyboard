@@ -9,9 +9,16 @@
 import UIKit
 import SwiftExpand
 
+/// 屏幕宽度
+public let kScreenWidth: CGFloat           = UIScreen.main.bounds.width;
+/// 屏幕高度
+public let kScreenHeight: CGFloat          = UIScreen.main.bounds.height;
 
-let kKeyboardHeight: CGFloat = 218
-
+public let isiPhoneX: Bool                 = (kScreenHeight >= 812)
+/// IphoneXtab 底部安全区高度
+public let kIphoneXtabHeight: CGFloat      = isiPhoneX ? 34 : 0;
+/// 键盘视图高度
+public let kKeyboardHeight: CGFloat        = 226;
 
 @objc protocol NNKeyBoardViewDeleagte {
     @objc func keyboardViewSelect(key: String)
@@ -21,7 +28,7 @@ class NNKeyboardView: UIView {
     @objc public var inputTextfield: UITextField!
 
     let itemWidth: CGFloat = ((kScreenWidth - kPadding*2 - 9*1.0)/10.0)
-    let itemHeight: CGFloat = ((kKeyboardHeight - 5*4)/4.0)
+    let itemHeight: CGFloat = (CGFloat((kKeyboardHeight - 5*4))/4.0)
     let blankPadding: CGFloat = 20
 
     @objc public var numType = NNKeyboardNumType.auto
@@ -37,7 +44,7 @@ class NNKeyboardView: UIView {
     
     // MARK: - lifecycle
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x:0 , y: 0, width: kScreenWidth, height: 226 + 5 + kTabBarPaddingHeight))
+        super.init(frame: CGRect(x:0 , y: 0, width: kScreenWidth, height: 226 + 5 + kIphoneXtabHeight))
         setUI()
     }
    
@@ -51,7 +58,7 @@ class NNKeyboardView: UIView {
         view.image = UIImage(named: "pressed", podClass: NNPlateKeyboard.self)
         
         var label: UILabel {
-            let view = UILabel(frame: CGRectMake(0, 0, 55, 55))
+            let view = UILabel(frame: CGRect(0, 0, 55, 55))
             view.font = UIFont.systemFont(ofSize: 29)
             view.textAlignment = .center
             view.tag = 100;
@@ -80,9 +87,9 @@ class NNKeyboardView: UIView {
         let listLeft = names.filter { $0.count == 1 }
         let listRight = names.filter { $0.count > 1 }
        
-        let leftWidth: CGFloat = listLeft.count.toCGFloat*itemWidth + (listLeft.count.toCGFloat - 1)*1.0 + kPadding;
+        let leftWidth: CGFloat = listLeft.count.cgFloatValue*itemWidth + (listLeft.count.cgFloatValue - 1)*1.0 + kPadding;
         let rightWidth = kScreenWidth - leftWidth - blankPadding - kPadding;
-        let funItemWidth: CGFloat = (rightWidth - (listRight.count.toCGFloat - 1)*1.0)/listRight.count.toCGFloat - 1;
+        let funItemWidth: CGFloat = (rightWidth - (listRight.count.cgFloatValue - 1)*1.0)/listRight.count.cgFloatValue - 1;
 
         return funItemWidth;
     }
@@ -139,10 +146,7 @@ class NNKeyboardView: UIView {
     }
     /// 键盘视图更新
     func updateKeyboard(isMoreType: Bool){
-        listModel = NNKeyboardEngine.generateLayout(inputIndex: inputIndex,
-                                                    plateNumber: plateNumber,
-                                                    numberType: numType,
-                                                    isMoreType: isMoreType);
+        listModel = NNKeyboardEngine.generateLayout( inputIndex: inputIndex, plateNumber: plateNumber, numberType: numType, isMoreType:isMoreType);
         collectionView.reloadData()
     }
     
@@ -231,7 +235,7 @@ extension NNKeyboardView: UICollectionViewDataSource, UICollectionViewDelegate, 
 
         let rowCount: Int = collectionView.numberOfItems(inSection: section)
         if section == 2 && rowCount != 10 {
-            let left = (kScreenWidth - itemWidth*rowCount.toCGFloat - layout.minimumLineSpacing*(rowCount.toCGFloat - 1.0))*0.5;
+            let left = (kScreenWidth - itemWidth*rowCount.cgFloatValue - layout.minimumLineSpacing*(rowCount.cgFloatValue - 1.0))*0.5;
             return UIEdgeInsets(top: 0, left: left, bottom: 0, right: left);
         }
         return UIEdgeInsets(top: 0, left: kPadding, bottom: 0, right: kPadding);
