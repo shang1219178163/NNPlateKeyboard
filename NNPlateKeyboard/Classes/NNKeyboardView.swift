@@ -10,15 +10,15 @@ import UIKit
 import SwiftExpand
 
 /// 屏幕宽度
-public let kScreenWidth: CGFloat           = UIScreen.main.bounds.width;
-/// 屏幕高度
-public let kScreenHeight: CGFloat          = UIScreen.main.bounds.height;
+//public let kScreenWidth: CGFloat  = UIScreen.main.bounds.width;
+///// 屏幕高度
+//public let kScreenHeight: CGFloat = UIScreen.main.bounds.height;
 
-public let isiPhoneX: Bool                 = (kScreenHeight >= 812)
+public let isiPhoneX: Bool              = (kScreenHeight >= 812)
 /// IphoneXtab 底部安全区高度
-public let kIphoneXtabHeight: CGFloat      = isiPhoneX ? 34 : 0;
+public let kIphoneXtabHeight: CGFloat   = isiPhoneX ? 34 : 0;
 /// 键盘视图高度
-public let kKeyboardHeight: CGFloat        = 226;
+public let kKeyboardHeight: CGFloat     = 226;
 
 @objc protocol NNKeyBoardViewDeleagte {
     @objc func keyboardViewSelect(key: String)
